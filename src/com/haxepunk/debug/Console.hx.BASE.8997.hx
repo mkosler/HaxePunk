@@ -102,11 +102,7 @@ class Console
 
 	private function traceLog(v:Dynamic, ?infos:PosInfos)
 	{
-		var log:String = infos.className + "(" + infos.lineNumber + "): " + Std.string(v);
-		LOG.push(log);
-#if (cpp || neko)
-		Sys.println(log);
-#end
+		LOG.push(infos.className + "(" + infos.lineNumber + "): " + Std.string(v));
 		if (_enabled && _sprite.visible) updateLog();
 	}
 
